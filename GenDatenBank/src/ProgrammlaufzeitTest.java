@@ -30,10 +30,10 @@ public class ProgrammlaufzeitTest {
 		final long startTimeDyn = System.currentTimeMillis();
 		
 		DBFeldDyn<Tier> dbDyn = new DBFeldDyn<>();
-		for(int i=0; i<1000000; i++) {
+		for(int i=0; i<100_000; i++) {
 			dbDyn.appendLast(igelfeld[i]);
 		}
-		for(int i=0; i<1000000; i++) {
+		for(int i=0; i<100_000; i++) {
 			dbDyn.removeLast();
 		}
 		
@@ -48,7 +48,7 @@ public class ProgrammlaufzeitTest {
 		for(int i=0; i<10_000_000; i++) {
 			dbStack.appendLast(igelfeld[i]);
 		}
-		while(!dbDyn.isEmpty()) {
+		while(!dbStack.isEmpty()) {
 			dbStack.removeLast();
 		}
 		
@@ -56,7 +56,25 @@ public class ProgrammlaufzeitTest {
 		System.out.println("Programmlaufzeit für DBStack: " + (endTimeStack-startTimeStack) + " ms");
 		
 		
+		//-----------------------------------------------------------------------//
+		// verkettete Liste
+		final long startTimeVerkettet = System.currentTimeMillis();
+		
+		DBEVL<Tier> dbEVL = new DBEVL<>();
+		for(int i=0; i<10_000_0; i++) {
+			dbEVL.appendLast(igelfeld[i]);
+		}
+		while(!dbEVL.isEmpty()) {
+			dbEVL.removeLast();
+		}
+		
+		final long endTimeVerkettet = System.currentTimeMillis();
+		System.out.println("Programmlaufzeit für DBStack: " + (endTimeVerkettet-startTimeVerkettet) + " ms");
+		
+		//----------------------------------------------------------------------//
+		
 		final long programEndTime = System.currentTimeMillis();
 		System.out.println("Finish...Time: " + (programEndTime-programStartTime) + " ms");
+		
 	}
 }

@@ -97,14 +97,9 @@ public class javaSwingTut {
 				textFieldPLNumber.setEnabled(true);
 				lblStartAtTrack.setEnabled(true);
 			}
-<<<<<<< HEAD
+
 		});			
-=======
-		});
 			
->>>>>>> 4c851871d2dbf7ba398e401c22204ac3afed795f
-		
-		
 		JRadioButton rdbtnSingleTrack = new JRadioButton("Single Track");
 		rdbtnSingleTrack.setBounds(382, 52, 109, 23);
 		frame.getContentPane().add(rdbtnSingleTrack);
