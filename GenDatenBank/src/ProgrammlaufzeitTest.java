@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class ProgrammlaufzeitTest {
 	public static void main(String[] args) {
@@ -61,7 +63,7 @@ public class ProgrammlaufzeitTest {
 		final long startTimeVerkettet = System.currentTimeMillis();
 		
 		DBEVL<Tier> dbEVL = new DBEVL<>();
-		for(int i=0; i<10_000_0; i++) {
+		for(int i=0; i<10_000_000; i++) {
 			dbEVL.appendLast(igelfeld[i]);
 		}
 		while(!dbEVL.isEmpty()) {
@@ -69,8 +71,23 @@ public class ProgrammlaufzeitTest {
 		}
 		
 		final long endTimeVerkettet = System.currentTimeMillis();
-		System.out.println("Programmlaufzeit für DBStack: " + (endTimeVerkettet-startTimeVerkettet) + " ms");
+		System.out.println("Programmlaufzeit für DBEVL: " + (endTimeVerkettet-startTimeVerkettet) + " ms");
 		
+		//----------------------------------------------------------------------//
+		// interne List Klasse
+		final long startTimeList = System.currentTimeMillis();
+				
+		LinkedList<Tier> dbList = new LinkedList<>();
+		for(int i=0; i<10_000_000; i++) {
+			dbList.add(igelfeld[i]);
+		}
+		while(!dbEVL.isEmpty()) {
+			dbList.removeLast();
+		}
+				
+		final long endTimeList = System.currentTimeMillis();
+		System.out.println("Programmlaufzeit für LinkedList(intern): " + (endTimeList-startTimeList) + " ms");
+				
 		//----------------------------------------------------------------------//
 		
 		final long programEndTime = System.currentTimeMillis();

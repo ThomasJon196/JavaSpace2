@@ -1,22 +1,23 @@
 
 public class DBEVL<T> implements DBIF<T>{
 	int size;
-	Element pFirst;
+	Element pFirst, pLast;
 	
-	private class Element{
+	class Element{
 		T element;
-		Element pNext, pLast;
+		Element pNext, pPrev;
 		
 		Element(T element) {
 			this.element = element;
 			pNext = null;
-			pLast = null;
+			pPrev = null;
 		}
 	}
 	
 	public DBEVL() {
 		size = 0;
 		pFirst = null;
+		pLast = null;
 	}
 	
 	public boolean isEmpty() {
@@ -32,15 +33,13 @@ public class DBEVL<T> implements DBIF<T>{
 	public void appendLast(T tier) {
 		if(isEmpty()) {
 			pFirst = new Element(tier);
+			pLast = pFirst;
 			size++;
 		} else {
-			Element current = pFirst;
-			while(current.pNext != null) {
-				current = current.pNext;
-			}
-				current.pNext = new Element(tier);
-				current.pNext.pLast = current;
-				size++;
+			pLast.pNext = new Element(tier);
+			pLast.pNext.pPrev = pLast;
+			pLast = pLast.pNext;
+			size++;
 		}
 		
 	}	
@@ -53,12 +52,9 @@ public class DBEVL<T> implements DBIF<T>{
 				pFirst = null;
 				size--;
 			} else {
-				Element current = pFirst;
-				while(current.pNext.pNext != null) {
-					current = current.pNext;
-				}
-				returnElement = current.pNext.element;
-				current.pNext = null;
+				returnElement = pLast.element;
+				pLast = pLast.pPrev;
+				pLast.pNext = null;
 				size--;
 			}
 		}
@@ -77,11 +73,11 @@ public class DBEVL<T> implements DBIF<T>{
 			Element temp = pFirst;
 			pFirst = new Element(tier);
 			pFirst.pNext = temp;
-			pFirst.pNext.pLast = pFirst;		
+			pFirst.pNext.pPrev = pFirst;		
 		} else {
 			Element newTemp = new Element(tier);
 			newTemp.pNext = current.pNext;
-			newTemp.pLast = current;
+			newTemp.pPrev = current;
 			current.pNext = newTemp;
 		}
 		

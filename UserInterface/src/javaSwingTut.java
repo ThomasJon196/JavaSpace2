@@ -96,7 +96,7 @@ public class javaSwingTut {
 			public void actionPerformed(ActionEvent e) {
 				textFieldPLNumber.setEnabled(true);
 				lblStartAtTrack.setEnabled(true);
-			}
+			} 
 
 		});			
 			

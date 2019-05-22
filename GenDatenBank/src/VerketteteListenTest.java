@@ -6,8 +6,9 @@ public class VerketteteListenTest {
 		evlDB.appendLast(new Igel(10, 10));
 		evlDB.appendLast(new Katze(20, 20));
 		evlDB.appendLast(new Katze(30, 30));
-		evlDB.insert(new Igel(40, 40), 1);
+		evlDB.insert(new Igel(40, 40), 4);
 		
 		System.out.println(evlDB.removeLast());
+		System.out.println(evlDB.pFirst.pNext.pNext.pPrev.element);
 	}
 }
