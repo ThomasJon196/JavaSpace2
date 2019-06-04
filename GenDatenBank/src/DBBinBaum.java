@@ -1,7 +1,9 @@
+
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Random;
 
-public class DBBinBaum<T extends Comparable> extends DB<T> {
+public class DBBinBaum<T> extends DB<T> {
 	Node root;
 	
 	private class Node{
@@ -19,18 +21,46 @@ public class DBBinBaum<T extends Comparable> extends DB<T> {
 	public DBBinBaum() {
 		root = null;
 	}
+	//-------------------------------------------------
+	// Methods for binary trees
 	
-	@Override
-	public void appendLast(T tier) {
-		addRecursive(root, tier);
+	public void add(T element) {
+		appendLast(element);
 	}
 	
-	void addRecursive(Node n, T tier) {
-		if(root == null) {
-			root = new Node(tier);
-			return;
+	public boolean remove(T element) {
+		// TODO
+		return false;
+	}
+	
+	public boolean search(T element) {
+		// TODO
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	//-------------------------------------------------
+	
+	
+	
+	@Override
+	public void appendLast(T element) {
+		addRecursive(root, element);
+	}
+	
+	void addRecursive(Node n, T element) {
+		Random rand = new Random();
+		if(rand.nextBoolean()) {
+			if(n.left == null) n.left = new Node(element);
+			else addRecursive(n.left, element);
+		}else {
+			if(n.right == null) n.right = new Node(element);
+			else addRecursive(n.right, element);
 		}
-		
 	}
 
 	@Override
@@ -62,5 +92,6 @@ public class DBBinBaum<T extends Comparable> extends DB<T> {
 		// TODO Auto-generated method stub
 		
 	}
+
 	
 }
