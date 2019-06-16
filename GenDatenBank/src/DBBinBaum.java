@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Random;
 
-public class DBBinBaum<T> extends DB<T> {
+public class DBBinBaum<T extends Comparable<T>> extends DB<T> {
 	Node root;
 	
 	private class Node{
@@ -11,10 +11,12 @@ public class DBBinBaum<T> extends DB<T> {
 		Node left;
 		Node right;
 		
+		Node previous;
 		Node(T element){
 			this.element = element;
 			left = null;
 			right = null;
+			previous = null;
 		}
 	}
 	
@@ -37,11 +39,6 @@ public class DBBinBaum<T> extends DB<T> {
 		// TODO
 		return false;
 	}
-	
-	
-	
-	
-	
 	
 	//-------------------------------------------------
 	
