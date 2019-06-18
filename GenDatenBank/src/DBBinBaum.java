@@ -62,10 +62,17 @@ public class DBBinBaum<T extends Comparable<T>> extends DB<T> {
 
 	@Override
 	public T removeLast() {
-		// TODO Auto-generated method stub
+		Node temp = root;
+		Random rand = new Random();
+		while(temp != null) {
+			if(rand.nextBoolean()) {
+				
+			}
+		}
 		return null;
 	}
 
+	
 	@Override
 	public T get(int i) {
 		// TODO Auto-generated method stub
