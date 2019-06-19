@@ -54,3 +54,4 @@ public class DBTier2<T extends Tier> extends DBBinBaum<T> {
 		
 	//-------------------------------------------------
 }
+
