@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Random;
 
-public class DBBinBaum<T extends Comparable<T>> extends DB<T> {
+public class DBBinBaum<T> extends DB<T> {
 	Node root;
 	
 	private class Node{
@@ -25,9 +25,13 @@ public class DBBinBaum<T extends Comparable<T>> extends DB<T> {
 	}
 	//-------------------------------------------------
 	// Methods for binary trees
+	// Da diese Aufgabe Sinnfrei ist wurde sie übersprungen und stattdessen
+	// direkt beim DBBinBaumTier weitergemacht
 	
-	public void add(T element) {
+	
+	public boolean add(T element) {
 		appendLast(element);
+		return true; // Trash
 	}
 	
 	public boolean remove(T element) {
