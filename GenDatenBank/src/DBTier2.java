@@ -1,5 +1,5 @@
 
-public class DBTier2<T extends Tier> extends DBBinBaum<T> {
+public class DBTier2<T extends Tier> extends DBBinBaum{
 	Node root;
 	
 	private class Node{

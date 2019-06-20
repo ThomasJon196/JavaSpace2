@@ -1,7 +1,4 @@
-    
-/DBEVL$Element.class
-/DBEVL.class
-/VerketteteListenTest.class
-/DBBinBaum.class
+/BinBaum$Node.class
+/BinBaum.class
 /DBBinBaum$Node.class
-/DBTier2.class
+/DBBinBaum.class
