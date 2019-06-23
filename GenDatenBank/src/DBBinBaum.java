@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class DBBinBaum<T extends Comparable<T>> {
 	Node root;
@@ -40,25 +41,6 @@ public class DBBinBaum<T extends Comparable<T>> {
 
 	private T findBiggestValue(Node current) {
 		return (current.right == null ? current.element : findBiggestValue(current.right));
-	}
-
-	private Node removeRecursive(Node current, T element) {
-		if(current == null) {
-			return null;
-		}
-		
-		if(current.element.compareTo(element) == 0) {
-			
-			
-			
-		}
-		if(current.element.compareTo(element) > 0) {
-			current.left = removeRecursive(current.left, element);
-		}
-		if(current.element.compareTo(element) < 0) {
-			current.right = removeRecursive(current.right, element);
-		}
-		return current;
 	}
 
 	public boolean remove(T element) {
@@ -151,6 +133,6 @@ public class DBBinBaum<T extends Comparable<T>> {
 		binbaum.printTree(binbaum.root);
 		binbaum.remove(new Igel(5,5));
 		binbaum.printTree(binbaum.root);
-
+		
 	}
 }
