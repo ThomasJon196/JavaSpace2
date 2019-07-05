@@ -9,6 +9,6 @@ public class VerketteteListenTest {
 		evlDB.insert(new Igel(40, 40), 4);
 		
 		System.out.println(evlDB.removeLast());
-		System.out.println(evlDB.pFirst.pNext.pNext.pPrev.element);
+		System.out.println(evlDB.pFirst.pNext.pNext.element);
 	}
 }

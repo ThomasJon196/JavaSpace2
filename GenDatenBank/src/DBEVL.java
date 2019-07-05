@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class DBEVL<T> implements DBIF<T>{
 	int size;
@@ -63,12 +65,18 @@ public class DBEVL<T> implements DBIF<T>{
 
 	public boolean insert(T tier, int index) {
 		if(index-1 > size) return false;
+		if(index-1 == size) {
+			appendLast(tier);
+			return true;
+		}
+		
 		Element current = pFirst;
 		if(size > 1) {
 			for(int i=1; i<index-1; i++) {
 				current = current.pNext;
 			}
 		}
+		
 		if(index == 1) {
 			Element temp = pFirst;
 			pFirst = new Element(tier);
@@ -76,9 +84,13 @@ public class DBEVL<T> implements DBIF<T>{
 			pFirst.pNext.pPrev = pFirst;		
 		} else {
 			Element newTemp = new Element(tier);
-			newTemp.pNext = current.pNext;
-			newTemp.pPrev = current;
-			current.pNext = newTemp;
+			newTemp.pNext = current;
+			newTemp.pPrev = current.pPrev;
+			
+			current.pPrev = newTemp;
+			
+			newTemp.pPrev.pNext = newTemp;
+			
 		}
 		
 		
@@ -96,5 +108,9 @@ public class DBEVL<T> implements DBIF<T>{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	// Klausuraufgabe
+	
+	
 	
 }

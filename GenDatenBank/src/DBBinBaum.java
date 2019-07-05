@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Random;
 
 public class DBBinBaum<T extends Comparable<T>> {
@@ -116,6 +118,24 @@ public class DBBinBaum<T extends Comparable<T>> {
 			printTree(start.right);
 		}
 	}
+	
+	
+	public void bfs() {
+		Node curr = root;
+		Queue<Node> que = new LinkedList<>();
+		
+		que.add(curr);
+		Node temp = null;
+		
+		while(!que.isEmpty()) {
+			temp = que.remove();
+			System.out.println(temp.element.toString());
+			if(temp.left != null)
+			que.add(temp.left);
+			if(temp.right != null)
+			que.add(temp.right);
+		}
+	}
 
 	// -------------------------------------------------
 	// Im Comperator wird der erste Wert des Tieres verglichen
@@ -128,11 +148,10 @@ public class DBBinBaum<T extends Comparable<T>> {
 		binbaum.add(new Katze(20, 20));
 		binbaum.add(new Igel(30, 30));
 		binbaum.add(i1);
-		binbaum.printTree(binbaum.root);
-		binbaum.remove(new Igel(20, 20));
-		binbaum.printTree(binbaum.root);
-		binbaum.remove(new Igel(5,5));
-		binbaum.printTree(binbaum.root);
+		
+		binbaum.bfs();
+		
+		System.out.println(binbaum.root.right.left.element);
 		
 	}
 }
