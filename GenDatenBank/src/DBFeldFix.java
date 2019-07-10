@@ -163,4 +163,10 @@ public class DBFeldFix<T> extends DB<T>{
 			return (E)db[size-(itCounter++)];
 		}
 	}
+	
+	public static<E> void printAll(Iterable<E> list) {
+		for(E ele : list) {
+			System.out.println(ele);
+		}
+	}
 }

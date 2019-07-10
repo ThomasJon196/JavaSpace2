@@ -34,6 +34,6 @@ public class DBFeldMain {
 		DBIF<Tier> tierDB2 = new DBStack<>(); // Nur Sugriff auf die Methoden die auch in DBIF deklariert wurden!
 		DBStack<Tier> tierDB3 = new DBStack<>();
 		
-		
+		DBFeldFix.printAll(tierDB);
 	}
 }
