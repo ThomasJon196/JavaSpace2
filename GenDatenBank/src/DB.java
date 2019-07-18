@@ -1,5 +1,4 @@
 import java.util.Comparator;
-import java.util.Iterator;
 
 abstract class DB<T> implements DBIF<T>, Iterable<T>{
 	public int size;

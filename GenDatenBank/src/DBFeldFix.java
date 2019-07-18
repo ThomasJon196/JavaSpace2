@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.Comparator;
+import java.util.Iterator;
+
+//import java.util.*;
 
 public class DBFeldFix<T> extends DB<T>{
 	// Class variables
