@@ -137,6 +137,16 @@ public class DBBinBaum<T extends Comparable<T>> {
 		}
 	}
 
+	String preOderPrint() {
+		return preRec(root);
+	}
+	
+	String preRec(Node n) {
+		return n.element.toString()	
+				+ (n.left != null ? preRec(n.left) : "")
+				+ (n.right != null ? preRec(n.right) : "");
+	}
+	
 	// -------------------------------------------------
 	// Im Comperator wird der erste Wert des Tieres verglichen
 
@@ -151,7 +161,11 @@ public class DBBinBaum<T extends Comparable<T>> {
 		
 		binbaum.bfs();
 		
-		System.out.println(binbaum.root.right.left.element);
+		System.out.println(binbaum.preOderPrint());
+		
+		
+		
+		//System.out.println(binbaum.root.right.left.element);
 		
 	}
 }
